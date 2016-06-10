@@ -1,0 +1,127 @@
+<!-- Validation failure messages -->
+<% if @spend.errors.any? %>
+  <% @spend.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Spend</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_spend" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for classification -->
+      <div class="form-group">
+        <label for="classification" class="control-label">
+          Classification
+        </label>
+
+        <input type="text" id="classification" name="classification" placeholder="Classification" class="form-control" value="<%= @spend.classification %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @spend.user_id %>">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @spend.notes %>">
+      </div>
+
+      <!-- Label and input for labels -->
+      <div class="form-group">
+        <label for="labels" class="control-label">
+          Labels
+        </label>
+
+        <input type="text" id="labels" name="labels" placeholder="Labels" class="form-control" value="<%= @spend.labels %>">
+      </div>
+
+      <!-- Label and input for account_name -->
+      <div class="form-group">
+        <label for="account_name" class="control-label">
+          Account name
+        </label>
+
+        <input type="text" id="account_name" name="account_name" placeholder="Account name" class="form-control" value="<%= @spend.account_name %>">
+      </div>
+
+      <!-- Label and input for category -->
+      <div class="form-group">
+        <label for="category" class="control-label">
+          Category
+        </label>
+
+        <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @spend.category %>">
+      </div>
+
+      <!-- Label and input for trans -->
+      <div class="form-group">
+        <label for="trans" class="control-label">
+          Transaction
+        </label>
+
+        <input type="text" id="trans" name="trans" placeholder="Transaction" class="form-control" value="<%= @spend.trans %>">
+      </div>
+
+      <!-- Label and input for amount -->
+      <div class="form-group">
+        <label for="amount" class="control-label">
+          Amount
+        </label>
+
+        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @spend.amount %>">
+      </div>
+
+      <!-- Label and input for original_description -->
+      <div class="form-group">
+        <label for="original_description" class="control-label">
+          Original description
+        </label>
+
+        <input type="text" id="original_description" name="original_description" placeholder="Original description" class="form-control" value="<%= @spend.original_description %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @spend.description %>">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @spend.date %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Spend
+      </button>
+      or
+      <a href="/spends">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="page-header">
+  <h1>
+    Spends
+    <a href="/spends/new" class="btn btn-lg btn-success">New Spend</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Classification</th>
+        <th>User</th>
+        <th>Notes</th>
+        <th>Labels</th>
+        <th>Account name</th>
+        <th>Category</th>
+        <th>Transaction</th>
+        <th>Amount</th>
+        <th>Original description</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @spends.each do |spend| %>
+      <tr>
+        <td><%= spend.classification %></td>
+        <td><%= spend.user_id %></td>
+        <td><%= spend.notes %></td>
+        <td><%= spend.labels %></td>
+        <td><%= spend.account_name %></td>
+        <td><%= spend.category %></td>
+        <td><%= spend.transaction %></td>
+        <td><%= spend.amount %></td>
+        <td><%= spend.original_description %></td>
+        <td><%= spend.description %></td>
+        <td><%= spend.date %></td>
+        <td>
+          <a href="/spends/<%= spend.id %>" class="btn btn-primary">Show</a>
+          <a href="/spends/<%= spend.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_spend/<%= spend.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="page-header">
+  <h3>Spend #<%= @spend.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Classification</dt>
+      <dd><%= @spend.classification %></dd>
+
+      <dt>User</dt>
+      <dd><%= @spend.user_id %></dd>
+
+      <dt>Notes</dt>
+      <dd><%= @spend.notes %></dd>
+
+      <dt>Labels</dt>
+      <dd><%= @spend.labels %></dd>
+
+      <dt>Account name</dt>
+      <dd><%= @spend.account_name %></dd>
+
+      <dt>Category</dt>
+      <dd><%= @spend.category %></dd>
+
+      <dt>Transaction</dt>
+      <dd><%= @spend.transaction %></dd>
+
+      <dt>Amount</dt>
+      <dd><%= @spend.amount %></dd>
+
+      <dt>Original description</dt>
+      <dd><%= @spend.original_description %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @spend.description %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @spend.date %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/spends" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/spends/<%= @spend.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_spend/<%= @spend.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

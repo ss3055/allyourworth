@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Budget #<%= @budget.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Savings</dt>
+      <dd><%= @budget.savings %></dd>
+
+      <dt>Wants</dt>
+      <dd><%= @budget.wants %></dd>
+
+      <dt>Needs</dt>
+      <dd><%= @budget.needs %></dd>
+
+      <dt>Income</dt>
+      <dd><%= @budget.income %></dd>
+
+      <dt>User</dt>
+      <dd><%= @budget.user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/budgets" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/budgets/<%= @budget.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_budget/<%= @budget.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @budget.errors.any? %>
+  <% @budget.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Budget #<%= @budget.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_budget/<%= @budget.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for savings -->
+      <div class="form-group">
+        <label for="savings" class="control-label">
+          Savings
+        </label>
+
+        <input type="text" id="savings" name="savings" placeholder="Savings" class="form-control" value="<%= @budget.savings %>">
+      </div>
+
+      <!-- Label and input for wants -->
+      <div class="form-group">
+        <label for="wants" class="control-label">
+          Wants
+        </label>
+
+        <input type="text" id="wants" name="wants" placeholder="Wants" class="form-control" value="<%= @budget.wants %>">
+      </div>
+
+      <!-- Label and input for needs -->
+      <div class="form-group">
+        <label for="needs" class="control-label">
+          Needs
+        </label>
+
+        <input type="text" id="needs" name="needs" placeholder="Needs" class="form-control" value="<%= @budget.needs %>">
+      </div>
+
+      <!-- Label and input for income -->
+      <div class="form-group">
+        <label for="income" class="control-label">
+          Income
+        </label>
+
+        <input type="text" id="income" name="income" placeholder="Income" class="form-control" value="<%= @budget.income %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @budget.user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Budget
+      </button>
+      or
+      <a href="/budgets/<%= @budget.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

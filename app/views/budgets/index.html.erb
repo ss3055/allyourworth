@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Budgets
+    <a href="/budgets/new" class="btn btn-lg btn-success">New Budget</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Savings</th>
+        <th>Wants</th>
+        <th>Needs</th>
+        <th>Income</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @budgets.each do |budget| %>
+      <tr>
+        <td><%= budget.savings %></td>
+        <td><%= budget.wants %></td>
+        <td><%= budget.needs %></td>
+        <td><%= budget.income %></td>
+        <td><%= budget.user_id %></td>
+        <td>
+          <a href="/budgets/<%= budget.id %>" class="btn btn-primary">Show</a>
+          <a href="/budgets/<%= budget.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_budget/<%= budget.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
